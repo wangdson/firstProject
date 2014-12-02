@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="WallPaperWeb"
+  id="myeclipse.1342061226583"
+  context-root="/WallPaperWeb"
+  j2ee-spec="5.0"
+  archive="WallPaperWeb.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

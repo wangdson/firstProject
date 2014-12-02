@@ -1,0 +1,36 @@
+<%@ page language="java" import="java.util.*,com.dxs.Util.*,com.dxs.Entity.*,com.dxs.Service.Impl.*,com.dxs.Service.Intf.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'error.jsp' starting page</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+  </head>
+  
+  <body>
+   <%
+   String k=request.getParameter("key");
+		if (k!=null){
+			//k=k.substring(3,k.length());
+			ShortLinkService shortServ=new ShortLinkServiceImpl();
+			ShortLink sl=shortServ.searchObjectByShort(k);
+			response.sendRedirect(sl.getLongUrl());
+		}
+    %>
+  </body>
+</html>

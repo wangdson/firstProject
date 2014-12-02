@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 设置浏览器是否缓存静态内容,默认值为true(生产环境下使用),开发阶段最好关闭 -->
+    <constant name="struts.serve.static.browserCache" value="false"/>
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="true"/>
+    <!-- 默认的视图主题 
+    <constant name="struts.ui.theme" value="simple"/>-->
+    <!--<constant name="struts.objectFactory" value="spring" />-->
+    <!--解决乱码    -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!-- 指定允许上传的文件最大字节数。默认值是20971520(200M) -->
+   <constant name="struts.multipart.maxSize" value="104857600"/>
+    <!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
+    <constant name="struts.multipart.saveDir " value="/home/cloud/java/apache-tomcat-7.0.27/webapps/WallPaperWeb/ipaper/uploaduser"/>    
+	<package name="com.dxs.Action" extends='struts-default'>
+		<action name="UnionIdFresh" class="com.dxs.Action.UnionIdFresh">
+			<result name="PaperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="ShortFresh" class="com.dxs.Action.ShortFresh">
+			<result name="PaperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="TagFresh" class="com.dxs.Action.TagFresh">
+			<result name="PaperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="TestCmd" class="com.dxs.Action.TestCmd">
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="ModifyAppVersion" class="com.dxs.Action.ModifyAppVersion">
+			<result name="PaperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="ModifyAppVersion">/webjsp/modifyAppVersion.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="PaperbagCateAction" class="com.dxs.Action.PaperbagCateAction">
+			<result name="TagShowAction" type="redirectAction">TagShowAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		  
+		<action name="TagAction" class="com.dxs.Action.TagAction">
+			<result name="addtag">/webjsp/addtag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="ClassificationAction" class="com.dxs.Action.ClassificationAction">
+			<result name="ClassificationList">/webjsp/ClassificationManage.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		
+		<action name="TagShowAction" class="com.dxs.Action.TagShowAction">
+			<result name="tagbook">/webjsp/tagbook.jsp</result>
+			<result name="tag">/webjsp/tag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="TagCateAction" class="com.dxs.Action.TagCateAction">
+			<result name="TagShowAction" type="redirectAction">TagShowAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="MartAnalyse" class="com.dxs.Action.MartAnalyse">
+			<result name="mart">/webjsp/mart.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+			<result name="login">/webjsp/mylogin.jsp</result>
+		</action>
+		<action name="MyLogin" class="com.dxs.Action.MyLogin">
+			<result name="index">/webjsp/index.jsp</result>
+			
+			<result name="login">/webjsp/mylogin.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="PaperbagViewAction" class="com.dxs.Action.PaperbagViewAction">
+			<result name="paperbag">/webjsp/paperbag.jsp</result>
+			<result name="login">/webjsp/mylogin.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="UploadFileAction" class="com.dxs.Action.UploadFileAction">
+			<result name="paperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="CKAction" class="com.dxs.Action.CKAction">
+			<result name="paperbagViewAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="paperbagViewAction!packok" type="redirectAction">PaperbagViewAction!packok</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="CompileAction" class="com.dxs.Action.CompileAction">
+			<result name="paperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="UpdateSver" class="com.dxs.Action.UpdateSver">
+			<result name="paperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="ModifyPaperRecState" class="com.dxs.Action.ModifyPaperRecState">
+			<result name="paperbagViewAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="Deldata" class="com.dxs.Action.Deldata">
+			<result name="paperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="e" class="com.dxs.Action.e">
+			<result name="shortlink" >/webjsp/shortlink.jsp</result>
+			<result name="shortjson" >/android/Shortjson.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="u" class="com.dxs.Action.u">
+			<result name="shortlink" >/webjsp/shortlink.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="PaperEdit" class="com.dxs.Action.PaperEdit">
+			<result name="paperEdit">/webjsp/paperEdit.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="RetrievalViewAction" class="com.dxs.Action.GetRetrievalViewAction">
+			<result name="retrievalView">/webjsp/retrieval.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="EditRecommendAction" class="com.dxs.Action.EditRecommendAction">
+			<result name="retrieval">/webjsp/retrieval.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="ModifyPaperbag" class="com.dxs.Action.ModifyPaperbag">
+			<result name="paperbagAction" type="redirectAction">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="PageAction" class="com.dxs.Action.PageAction">
+			<result name="PaperbagAction" type="chain">PaperbagViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="PushMsgViewAction" class="com.dxs.Action.GetPushMsgViewAction">
+			<result name="pushMsgView">/webjsp/pushMsg.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="pushAction" class="com.dxs.Action.pushAction">
+			<result name="pushSuccess" type="redirectAction">PushMsgViewAction</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetPaperViewAction" class="com.dxs.Action.GetPaperViewAction">
+			<result name="paperView">/webjsp/paperView.jsp</result>
+			<result name="paperView_rec">/webjsp/paperView_rec.jsp</result>
+			<result name="login">/webjsp/mylogin.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+	</package>
+	<package name="com.dxs.Action.Android" extends='json-default'>
+		<action name="GetBookByCateIdAction" class="com.dxs.Action.Android.GetBookByCateIdAction">
+			<result name="GetTag">/android/GetTag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="AddTagHotAction" class="com.dxs.Action.Android.AddTagHotAction">
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetBookByIdAction" class="com.dxs.Action.Android.GetBookByIdAction">
+			<result name="GetTag">/android/GetTag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetBookObjectAction" class="com.dxs.Action.Android.GetBookObjectAction">
+			<result name="GetTag">/android/GetTag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetPaperByCate" class="com.dxs.Action.Android.GetPaperByCate">
+			<result name="GetTag">/android/GetTag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetTagByCateAction" class="com.dxs.Action.Android.GetTagByCateAction">
+			<result name="GetTag">/android/GetTag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="UpFile" class="com.dxs.Action.Android.UpFile">
+            <!-- 动态设置savePath的属性值 -->
+            <param name="savePath">/ipaper/uploaduser</param>
+            <result name="success">/webjsp/upok.jsp</result>
+            <result name="COMPILE" type="chain">Compile</result>
+        </action>
+		<action name="ImeiAction" class="com.dxs.Action.Android.ImeiAction">
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetRecAction" class="com.dxs.Action.Android.GetRecAction">
+			<result name="getrec">/android/GetRec.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetRecommendAction" class="com.dxs.Action.Android.GetRecommendAction">
+			<result name="GetNewRecommend">/android/GetNewRecommend.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="MartCate" class="com.dxs.Action.Android.MartCate">
+			<result name="mart">/webjsp/mart.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="GetHotAction" class="com.dxs.Action.Android.GetHotAction">
+			<result name="GetHot">/android/GetHot.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetPushAction" class="com.dxs.Action.Android.GetPushAction">
+			<result name="GetPushInfo">/android/GetPushInfo.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		<action name="GetVersion" class="com.dxs.Action.Android.GetVersion">
+			<result name="GetVersion">/android/GetVersion.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="DownLoadApkAction" class="com.dxs.Action.Android.DownLoadApkAction">
+		</action>
+		
+		<action name="DownLoadWallPaperCoverAction" class="com.dxs.Action.Android.DownLoadWallPaperCoverAction">
+		</action>
+		
+		<action name="DownLoadWallpaperPackageAction" class="com.dxs.Action.DownLoadWallpaperPackageAction">
+		</action>
+		
+		<action name="DownLoadApkPackageAction" class="com.dxs.Action.DownLoadApkPackageAction">
+		</action>
+		
+		<action name="RegisterAction" class="com.dxs.Action.Android.RegisterAction">
+			<result name="GetReg">/android/GetReg.jsp</result>
+		</action>
+		
+		<action name="LoginAction" class="com.dxs.Action.Android.LoginAction">
+			<result name="GetReg">/android/GetReg.jsp</result>
+		</action>
+		
+		<action name="GetTagAction" class="com.dxs.Action.Android.GetTagAction">
+			<result name="GetTag">/android/GetTag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="GetCategoryAction" class="com.dxs.Action.Android.GetCategoryAction">
+			<result name="GetCategory">/android/GetCategory.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="SearchBooksAction" class="com.dxs.Action.Android.SearchBooksAction">
+			<result name="SearchReturnJson">/android/SearchReturnJson.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="WallPaperConfigAction" class="com.dxs.Action.WallPaperConfigAction">
+			<result name="paperList">/webjsp/PaperBagManage.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="WallpaperToClassificationAction" class="com.dxs.Action.WallpaperToClassificationAction">
+			<result name="paperList">/webjsp/PaperBagConfig.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="TagToClassificationAction" class="com.dxs.Action.TagToClassificationAction">
+			<result name="tagList">/webjsp/TagCategoryConfig.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="TagConfigAction" class="com.dxs.Action.TagConfigAction">
+			<result name="taglist">/webjsp/TagConfigManager.jsp</result>
+			<result name="tag">/webjsp/tag.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+		<action name="TagMangerAction" class="com.dxs.Action.TagMangerAction">
+			<result name="tagList">/webjsp/TagManage.jsp</result>
+			<result name="error">/webjsp/error.jsp</result>
+		</action>
+		
+	</package>
+</struts>    
